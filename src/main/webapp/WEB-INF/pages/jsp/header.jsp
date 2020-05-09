@@ -14,7 +14,7 @@
     <a class="header-brand" href="#">失物招领系统</a>
     <div class="nav left">
         <ul>
-            <li class="nav-item"><a href="#">首页</a></li>
+            <li class="nav-item"><a href="<%=path%>/index">首页</a></li>
             <li class="nav-item"><a href="#">失物招领信息</a></li>
             <li class="nav-item"><a href="#">发布新信息</a></li>
         </ul>
@@ -25,11 +25,11 @@
         <c:if test="${!empty sessionScope.user}">
             <li class="nav-item user-info">
                 <a href="#"><img alt="Double" class="user-avatar" src="<%=path%>/upload/avatar.jpg"><span
-                        class="user-name">Double</span></a>
+                        class="user-name">${user.username}</span></a>
                 <div class="dropdown" id="user-dropdown">
                     <a class="dropdown-item" href="">个人中心</a>
                     <a class="dropdown-item" href="">我的发布</a>
-                    <a class="dropdown-item" href="">退出登录</a>
+                    <a class="dropdown-item" href="<%=path%>/user/logout">退出登录</a>
                 </div>
             </li>
         </c:if>

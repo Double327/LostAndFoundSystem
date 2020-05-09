@@ -27,7 +27,7 @@
 <!--Login Form Start-->
 
 <div class="login-box">
-    <form action="#" class="login-form">
+    <form action="<%=path%>/user/login" method="post" class="login-form">
         <div class="logo">
             登录
         </div>
@@ -40,7 +40,7 @@
             <p class="tip">请输入密码</p>
         </div>
         <div class="form-item">
-            <button type="button">登录</button>
+            <button type="submit">登录</button>
         </div>
         <div class="form-item">
             <button type="reset">重置</button>

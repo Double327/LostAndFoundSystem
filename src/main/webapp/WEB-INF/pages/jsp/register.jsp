@@ -27,7 +27,7 @@
 <!--Register Form Start-->
 <div class="register-box">
     <div class="register-form">
-        <form class="">
+        <form  action="<%=path%>/user/register" method="post" class="">
             <div class="form-item">
                 <i class="iconfont icon">&#xe773;</i>
                 <input id="username" name="username" placeholder="请输入用户名" type="text">
