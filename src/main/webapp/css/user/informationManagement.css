@@ -1,0 +1,26 @@
+.info_manage table {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    border-collapse: collapse;
+    border: 1px solid #2c3e50;
+    border-radius: 10px;
+    text-align: center;
+    background: #ecf0f1;
+}
+.info_item {
+    height: 60px;
+}
+
+.info_item th {
+    background: #555;
+    border: 1px solid #777;
+    color: #fff;
+}
+
+
+.info_item td {
+    padding: 5px 10px;
+    border: 1px solid#777;
+    height: 60px;
+}

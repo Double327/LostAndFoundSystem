@@ -1,0 +1,57 @@
+.main {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+
+.notification {
+    width: 60%;
+    margin: 10px auto 0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+    background: #fff;
+}
+
+.notification-title {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.notification-title h4 {
+    font-size: 25px;
+}
+
+.release-time {
+    float: right;
+    font-size: 16px;
+    color: #95a5a6;
+}
+
+.notification-body {
+}
+
+.notification-content {
+    width: 85%;
+    float: left;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.notification-content p {
+    margin-bottom: 10px;
+}
+
+
+.notification-img {
+    width: 15%;
+    float: left;
+}
+
+.notification-img img {
+    display: block;
+    margin: 0 auto;
+    width: 80px;
+}

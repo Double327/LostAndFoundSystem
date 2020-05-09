@@ -1,0 +1,71 @@
+.register-box {
+    position: relative;
+    width: 100%;
+}
+
+.register-form {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+}
+
+.register-form form {
+    width: 274px;
+    float: left;
+}
+
+.form-item {
+    position: relative;
+}
+
+.form-item input {
+    width: 230px;
+    height: 30px;
+    margin: 5px 0;
+    padding-left: 40px;
+    outline: none;
+}
+
+.form-item button {
+    display: inline-block;
+    float: left;
+    width: 100px;
+    height: 30px;
+    margin: 0 10px;
+    box-sizing: content-box;
+}
+
+.form-item .checkCode {
+    width: 130px;
+    float: left;
+}
+
+.form-item canvas {
+    float: left;
+}
+
+.icon {
+    position: absolute;
+    left: 8px;
+    top: 10px;
+}
+
+
+.agreement {
+    float: right;
+}
+
+.agreement textarea {
+    width: 535px;
+    height: 240px;
+    resize: none;
+}
