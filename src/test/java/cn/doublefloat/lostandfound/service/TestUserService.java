@@ -1,4 +1,4 @@
-package cn.doublefloat.lostandfound.dao;
+package cn.doublefloat.lostandfound.service;
 
 import cn.doublefloat.lostandfound.entity.User;
 import cn.doublefloat.lostandfound.utils.LAFUtils;
@@ -13,66 +13,67 @@ import java.util.List;
 
 /**
  * @author 李广帅
- * @date 2020/5/8 10:30 下午
+ * @date 2020/5/9 5:32 下午
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
-public class TestUserDao {
+public class TestUserService {
+
     @Autowired()
-    @Qualifier("userDao")
-    private IUserDao userDao;
+    @Qualifier("userService")
+    private IUserService userService;
 
     @Test
     public void testAddUser() {
         User user = new User();
-        user.setId(LAFUtils.getId());
         user.setUsername("root");
         user.setPassword(LAFUtils.getMD5("root"));
-        userDao.addUser(user);
+        user.setEmail("203814477@qq.com");
+        userService.addUser(user);
     }
 
     @Test
     public void testDeleteUser() {
-        userDao.deleteUserById("a684f4f00a3d4dc99ae7437cb81ecaa0");
+        userService.deleteUserById("f526b43c615b412180c190ff0a3901b5");
     }
 
     @Test
     public void testUpdateUser() {
-        User user = userDao.getUserById("375f80b705a24751b06d5fc70496f925");
+        User user = userService.getUserById("375f80b705a24751b06d5fc70496f925");
         user.setEmail("203814477@qq.com");
         user.setPhoneNum("13145218799");
         user.setQq("203814477");
-        userDao.updateUser(user);
+        userService.updateUser(user);
     }
 
     @Test
     public void testUpdateUsername() {
-        userDao.updateUsername("375f80b705a24751b06d5fc70496f925", "admin");
+        userService.updateUsername("375f80b705a24751b06d5fc70496f925", "admin");
     }
 
     @Test
     public void testUpdatePassword() {
-        userDao.updatePassword("375f80b705a24751b06d5fc70496f925", LAFUtils.getMD5("admin"));
+        userService.updatePassword("375f80b705a24751b06d5fc70496f925", LAFUtils.getMD5("admin"));
     }
 
     @Test
     public void testUpdateEmail() {
-        userDao.updateEmail("375f80b705a24751b06d5fc70496f925", "180303665@qq.com");
+        userService.updateEmail("375f80b705a24751b06d5fc70496f925", "180303665@qq.com");
     }
 
     @Test
     public void testUpdatePhoneNum() {
-        userDao.updatePhoneNum("375f80b705a24751b06d5fc70496f925", "18361330636");
+        userService.updatePhoneNum("375f80b705a24751b06d5fc70496f925", "18361330636");
     }
 
     @Test
     public void testUpdateQQ() {
-        userDao.updateQQ("375f80b705a24751b06d5fc70496f925", "180303665");
+        userService.updateQQ("375f80b705a24751b06d5fc70496f925", "180303665");
     }
 
     @Test
     public void testGetAllUsers() {
-        List<User> users = userDao.getAllUsers();
+        List<User> users = userService.getAllUsers();
         for (User user : users) {
             System.out.println(user);
         }
@@ -80,21 +81,18 @@ public class TestUserDao {
 
     @Test
     public void testGetUserByUsernameAndPassword() {
-        User user = userDao.getUserByUsernameAndPassword("root", LAFUtils.getMD5("root"));
+        User user = userService.getUserByUsernameAndPassword("root", LAFUtils.getMD5("root"));
         System.out.println(user);
     }
 
     @Test
     public void testGetUserById() {
-        User user = userDao.getUserById("375f80b705a24751b06d5fc70496f925");
+        User user = userService.getUserById("375f80b705a24751b06d5fc70496f925");
         System.out.println(user);
     }
 
     @Test
     public void testGetUsersByUsername() {
-        List<User> users = userDao.getUsersByUsername("admin");
-        for (User user : users) {
-            System.out.println(user);
-        }
+        System.out.println(userService.checkUsernameExist("admin"));
     }
 }

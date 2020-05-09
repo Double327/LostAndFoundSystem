@@ -1,23 +1,21 @@
-package cn.doublefloat.lostandfound.dao;
+package cn.doublefloat.lostandfound.service;
 
 import cn.doublefloat.lostandfound.entity.User;
 import org.apache.ibatis.annotations.*;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * @author 李广帅
- * @date 2020/5/8 10:33 下午
+ * @date 2020/5/9 5:22 下午
  */
-@Repository("userDao")
-public interface IUserDao {
+public interface IUserService {
 
     /**
      * 添加用户信息
      * @param user 用户信息
      */
-    @Insert("insert into Users (id, username, password) values (#{id}, #{username}, #{password})")
     public void addUser(User user);
 
 
@@ -25,7 +23,6 @@ public interface IUserDao {
      * 根据用户ID删除用户信息
      * @param id 用户ID
      */
-    @Delete("delete from Users where id = #{id}")
     public void deleteUserById(String id);
 
 
@@ -33,7 +30,6 @@ public interface IUserDao {
      * 更新除ID外所有用户信息
      * @param user 用户信息
      */
-    @Update("update Users set username = #{username}, password = #{password}, email = #{email}, phonenum = #{phoneNum}, qq = #{qq};")
     public void updateUser(User user);
 
     /**
@@ -41,7 +37,6 @@ public interface IUserDao {
      * @param id 用户ID
      * @param username 新用户名
      */
-    @Update("update Users set username = #{username} where id = #{id};")
     public void updateUsername(@Param("id") String id, @Param("username") String username);
 
     /**
@@ -49,7 +44,6 @@ public interface IUserDao {
      * @param id 用户ID
      * @param password 新用户密码
      */
-    @Update("update Users set password = #{password} where id = #{id};")
     public void updatePassword(@Param("id") String id, @Param("password") String password);
 
     /**
@@ -57,7 +51,6 @@ public interface IUserDao {
      * @param id 用户ID
      * @param phoneNum 新用户手机号
      */
-    @Update("update Users set phonenum = #{phoneNum} where id = #{id};")
     public void updatePhoneNum(@Param("id") String id, @Param("phoneNum") String phoneNum);
 
     /**
@@ -65,7 +58,6 @@ public interface IUserDao {
      * @param id 用户ID
      * @param email 新用户邮箱
      */
-    @Update("update Users set email = #{email} where id = #{id};")
     public void updateEmail(@Param("id") String id, @Param("email") String email);
 
     /**
@@ -73,14 +65,12 @@ public interface IUserDao {
      * @param id 用户ID
      * @param qq 新用户QQ
      */
-    @Update("update Users set qq = #{qq} where id = #{id};")
     public void updateQQ(@Param("id") String id, @Param("qq") String qq);
 
     /**
      * 获取所有用户信息
      * @return 所有用户信息
      */
-    @Select("select * from Users;")
     public List<User> getAllUsers();
 
     /**
@@ -88,7 +78,6 @@ public interface IUserDao {
      * @param id 用户ID
      * @return 用户信息
      */
-    @Select("select * from Users where id = #{id}")
     public User getUserById(String id);
 
     /**
@@ -97,14 +86,12 @@ public interface IUserDao {
      * @param password 密码
      * @return 用户信息
      */
-    @Select("select * from Users where username = #{username} and password = #{password}")
     public User getUserByUsernameAndPassword(@Param("username") String username, @Param("password") String password);
 
     /**
-     * 根据用户名获取用户信息
+     * 检查用户名是否存在
      * @param username 用户名
-     * @return 用户信息
+     * @return 存在：true 不存在：false
      */
-    @Select("select * from  Users where username = #{username}")
-    public List<User> getUsersByUsername(String username);
+    public Boolean checkUsernameExist(String username);
 }
