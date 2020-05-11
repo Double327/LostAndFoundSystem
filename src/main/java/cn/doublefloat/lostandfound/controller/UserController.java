@@ -48,9 +48,11 @@ public class UserController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(User user) {
-        user.setPassword(LAFUtils.getMD5(user.getPassword()));
-        System.out.println(user);
-        userService.addUser(user);
+        if (!userService.checkUsernameExist(user.getUsername())) {
+            user.setPassword(LAFUtils.getMD5(user.getPassword()));
+            System.out.println(user);
+            userService.addUser(user);
+        }
         return "login";
     }
 

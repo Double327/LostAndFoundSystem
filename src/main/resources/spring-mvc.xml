@@ -10,6 +10,7 @@
 
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/upload/**" location="/upload/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/pages/jsp/"/>

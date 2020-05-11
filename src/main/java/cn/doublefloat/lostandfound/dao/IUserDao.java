@@ -17,7 +17,7 @@ public interface IUserDao {
      * 添加用户信息
      * @param user 用户信息
      */
-    @Insert("insert into Users (id, username, password) values (#{id}, #{username}, #{password})")
+    @Insert("insert into Users (id, username, password, email) values (#{id}, #{username}, #{password}, #{email})")
     public void addUser(User user);
 
 
