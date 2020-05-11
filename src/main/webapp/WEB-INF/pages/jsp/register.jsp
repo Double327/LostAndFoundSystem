@@ -1,39 +1,47 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: liguangshuai
+  Date: 2020/5/11
+  Time: 2:11 下午
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>注册</title>
-	<link href="css/base.css" rel="stylesheet">
-	<link href="css/common.css" rel="stylesheet">
-	<link href="css/register.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/register.css" rel="stylesheet">
 </head>
 <body>
 
 <!--Header Start-->
 <div class="header">
-	<a class="header-brand" href="#">失物招领系统</a>
-	<div class="nav left">
-		<ul>
-			<li class="nav-item"><a href="#">首页</a></li>
-			<li class="nav-item"><a href="#">失物招领信息</a></li>
-			<li class="nav-item"><a href="#">发布新信息</a></li>
-		</ul>
-	</div>
+    <a class="header-brand" href="#">失物招领系统</a>
+    <div class="nav left">
+        <ul>
+            <li class="nav-item"><a href="#">首页</a></li>
+            <li class="nav-item"><a href="#">失物招领信息</a></li>
+            <li class="nav-item"><a href="#">发布新信息</a></li>
+        </ul>
+    </div>
 
-	<ul class="nav-user right">
-		<!--已登录时显示-->
-		<!--		<li class="nav-item user-info">
-					<a href="#"><img alt="Double" class="user-avatar" src="../img/avatar.jpg"><span class="user-name">Double</span></a>
-					<div class="dropdown" id="user-dropdown">
-						<a class="dropdown-item" href="">个人中心</a>
-						<a class="dropdown-item" href="">我的发布</a>
-						<a class="dropdown-item" href="">退出登录</a>
-					</div>
-				</li>-->
-		<!--未登录时显示-->
-		<li class="nav-item"><a href="#">注册</a></li>
-		<li class="nav-item"><a href="#">登录</a></li>
-	</ul>
+    <ul class="nav-user right">
+        <!--已登录时显示-->
+        <!--		<li class="nav-item user-info">
+                    <a href="#"><img alt="Double" class="user-avatar" src="../img/avatar.jpg"><span class="user-name">Double</span></a>
+                    <div class="dropdown" id="user-dropdown">
+                        <a class="dropdown-item" href="">个人中心</a>
+                        <a class="dropdown-item" href="">我的发布</a>
+                        <a class="dropdown-item" href="">退出登录</a>
+                    </div>
+                </li>-->
+        <!--未登录时显示-->
+        <li class="nav-item"><a href="#">注册</a></li>
+        <li class="nav-item"><a href="#">登录</a></li>
+    </ul>
 </div>
 <!--Header End-->
 
@@ -41,35 +49,35 @@
 <!--Register Form Start-->
 
 <div class="register-box">
-	<div class="register-form">
-		<form class="">
-			<div class="form-item">
-				<i class="iconfont icon">&#xe773;</i>
-				<input id="username" name="username" placeholder="请输入用户名" type="text">
-			</div>
-			<div class="form-item">
-				<i class="iconfont icon">&#xe75b;</i>
-				<input id="password" name="password" placeholder="请输入密码" type="password">
-			</div>
-			<div class="form-item">
-				<i class="iconfont icon">&#xe75b;</i>
-				<input id="againPassword" placeholder="请确认密码" type="password">
-			</div>
-			<div class="form-item">
-				<i class="iconfont icon">&#xe74f;</i>
-				<input id="email" name="email" placeholder="请输入邮箱" type="text">
-			</div>
-			<div class="form-item">
-				<i class="iconfont icon">&#xe75f;</i>
-				<input class="checkCode" id="checkCode" placeholder="请输入验证码" type="text">
-				<canvas height="30px" id="canvas" width="100px"></canvas>
-			</div>
-			<div class="form-item">
-				<button id="register" type="submit">注册</button>
-				<button type="reset">重置</button>
-			</div>
-		</form>
-		<div class="agreement">
+    <div class="register-form">
+        <form class="">
+            <div class="form-item">
+                <i class="iconfont icon">&#xe773;</i>
+                <input id="username" name="username" placeholder="请输入用户名" type="text">
+            </div>
+            <div class="form-item">
+                <i class="iconfont icon">&#xe75b;</i>
+                <input id="password" name="password" placeholder="请输入密码" type="password">
+            </div>
+            <div class="form-item">
+                <i class="iconfont icon">&#xe75b;</i>
+                <input id="againPassword" placeholder="请确认密码" type="password">
+            </div>
+            <div class="form-item">
+                <i class="iconfont icon">&#xe74f;</i>
+                <input id="email" name="email" placeholder="请输入邮箱" type="text">
+            </div>
+            <div class="form-item">
+                <i class="iconfont icon">&#xe75f;</i>
+                <input class="checkCode" id="checkCode" placeholder="请输入验证码" type="text">
+                <canvas height="30px" id="canvas" width="100px"></canvas>
+            </div>
+            <div class="form-item">
+                <button id="register" type="submit">注册</button>
+                <button type="reset">重置</button>
+            </div>
+        </form>
+        <div class="agreement">
 			<textarea readonly>感谢您申请商标圈账户！在成为商标圈用户之前，请您仔细阅读以下条文，确保您理解并同意本协议全部内容。商标圈平台是由杭州名商网络有限公司（名商网）运营的商标转让的综合平台，域名为shangbiao.com。以下内容将构成您和杭州名商网络有限公司之间的服务合同条款。
 一、用户注册
 您同意本协议并注册成功即成为商标圈的注册用户直至您的账户注销。商标圈可能在必要的时候对本协议条款及商标圈各单项服务协议进行更改，此种更改在商标圈上公布或在具体服务过程中经双方以口头、书面等形式协商一致生效。您可以选择停止使用商标圈相关的服务或者注销您在商标圈的账户，否则商标圈将认为您同意更改后的服务条款。未在商标圈发布或在具体服务过程中未经商标圈告知的服务条款将不具有法律效力，除非签有书面协议，并且仅对签署协议的当事人有效。
@@ -122,16 +130,16 @@
 十二、其他
 工作日是指商标圈的营业日。除非商标圈公告通知休假，一般为中华人民共和国适用的休息日以及法定节假日之外的正常工作日。日期的计算使用公历年月日，时间的计算使用北京时间。
 商标圈通过公告通知，公告的时间为送达到用户的时间；通过商标圈网页向用户提醒，提醒出现的时间为送达的时间；通过用户提供的联系方式向用户送达，用户或其代表签收、用户系统接收的时间为送达的时间。</textarea>
-			<div class="form-item">
-				<label for="agreementCheckBox">勾选并同意《用户注册协议》</label>
-				<input id="agreementCheckBox" type="checkbox">
-			</div>
-		</div>
-	</div>
+            <div class="form-item">
+                <label for="agreementCheckBox">勾选并同意《用户注册协议》</label>
+                <input id="agreementCheckBox" type="checkbox">
+            </div>
+        </div>
+    </div>
 
-	<div class="alert">
-		A simple primary alert—check it out!
-	</div>
+    <div class="alert">
+        A simple primary alert—check it out!
+    </div>
 </div>
 <!--Register Form End-->
 
