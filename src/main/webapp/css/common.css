@@ -1,0 +1,264 @@
+.box-shadow {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+
+.header {
+    display: block;
+    width: 100%;
+    height: 50px;
+    background: #57606f;
+}
+
+.header-brand {
+    display: block;
+    float: left;
+    padding: 10px;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.nav {
+    width: 40%;
+    position: relative;
+}
+
+.nav-item {
+    float: left;
+    text-align: center;
+}
+
+.nav-item a {
+    display: block;
+    padding: 15px;
+    line-height: 20px;
+    color: #f1f2f6;
+}
+
+.nav-item a:hover {
+    color: #ced6e0;
+}
+
+.nav-user .nav-item {
+    float: right;
+}
+
+.user-content {
+    width: 130px;
+}
+
+
+.user-avatar {
+    width: 40px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.user-name {
+    float: right;
+    display: block;
+    line-height: 50px;
+}
+
+.user-info a {
+    padding: 0;
+    margin-right: 30px;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background: #fff;
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.dropdown .dropdown-item {
+    padding: 10px;
+    line-height: 30px;
+    text-align: center;
+    color: #000;
+}
+
+.dropdown .dropdown-item:hover {
+    color: #2f3542;
+}
+
+
+footer {
+    text-align: center;
+    height: 80px;
+    background-color: #ecf0f1;
+}
+
+.footer-projectname {
+    width: 100%;
+    display: block;
+    margin: 5px auto;
+}
+
+.footer-beian {
+    width: 100%;
+    display: block;
+    margin: 0 auto 10px;
+    color: #2d8cf0;
+    font-size: 16px;
+}
+
+.alert {
+    display: none;
+    position: absolute;
+    width: 500px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid #f5c6cb;
+    border-radius: .25rem;
+
+    text-align: center;
+    color: #721c24;
+    background-color: #f8d7da;
+}
+
+
+/*用户、管理员中心*/
+.main {
+    box-shadow: rgba(0, 0, 0, 0.7);
+}
+
+.hd {
+    width: 1200px;
+    height: 120px;
+    background-color: #f4f4f4;
+}
+
+.avatar {
+    float: left;
+}
+
+.avatar img {
+    width: 81px;
+    height: 81px;
+    margin-top: 20px;
+    margin-left: 30px;
+    border-radius: 40px;
+}
+
+.user-primary {
+    float: left;
+    margin-top: 38px;
+    margin-left: 10px;
+}
+
+.username {
+    font-size: 20px;
+}
+
+.user-role {
+    font-size: 14px;
+}
+
+.bd {
+    width: 1200px;
+    /*height: 480px;*/
+    padding-bottom: 20px;
+    background-color: #fff;
+}
+
+.bd-nav {
+    height: 44px;
+    background-color: #fbfbfb;
+}
+
+.bd-nav-item {
+    float: left;
+    margin-left: 32px;
+}
+
+.bd-nav-item a {
+    display: block;
+    padding: 10px 8px;
+    color: #000;
+    font-size: 16px;
+}
+
+.bd-nav-item a.current {
+    color: #7f8c8d;
+    border-bottom: 1px solid #7f8c8d;
+}
+
+.bd-nav-item a:hover {
+    color: #7f8c8d;
+    border-bottom: 1px solid #7f8c8d;
+}
+
+.title,
+.content {
+    padding: 0 43px;
+}
+
+.title {
+    height: 68px;
+    line-height: 68px;
+    border-bottom: 1px solid #efefef;
+}
+
+.title h5 {
+    float: left;
+    font-size: 16px;
+}
+
+.title p {
+    float: right;
+    margin-right: 380px;
+    font-size: 16px;
+}
+
+.content-head {
+    height: 50px;
+}
+
+.content-head-item {
+    float: left;
+    width: 382px;
+    height: 40px;
+    padding: 5px;
+
+    line-height: 40px;
+}
+
+.operation .btn {
+    display: block;
+    float: left;
+    width: 40px;
+    margin-top: 8px;
+    margin-right: 5px;
+
+    color: #fff;
+    border-radius: 4px;
+    outline: none;
+}
+
+.btn.detail {
+    background-color: #2ecc71;
+}
+
+.btn.update {
+    background-color: #3498db;
+}
+
+.btn.delete {
+    background-color: #e74c3c;
+}

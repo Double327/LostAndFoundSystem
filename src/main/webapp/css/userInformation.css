@@ -1,0 +1,28 @@
+.content-item {
+    margin-top: 25px;
+    height: 41px;
+    font-size: 16px;
+}
+
+
+.content-item .key {
+    float: left;
+    width: 122px;
+    text-align: left;
+    color: #2c3e50;
+}
+
+.content-item .value {
+    display: block;
+    float: left;
+    width: 618px;
+    height: 41px;
+    color: #2c3e50;
+    text-align: left;
+}
+
+.content-item .update {
+    float: left;
+    color: #7f8c8d;
+}
+

@@ -1,0 +1,28 @@
+.content-head-item {
+    float: left;
+    width: 150px;
+}
+
+.content-head-item.uUsername {
+    width: 150px;
+}
+
+.content-head-item.uEmail {
+    width: 200px;
+}
+
+.content-head-item.uPhoneNum {
+    width: 150px;
+}
+
+.content-head-item.uQQ {
+    width: 150px;
+}
+
+.content-head-item.uRole {
+
+}
+
+.content-head-item.operation {
+    width: 140px;
+}

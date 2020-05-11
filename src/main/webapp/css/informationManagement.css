@@ -1,0 +1,27 @@
+
+
+.content-head-item.con-title {
+
+}
+
+.content-head-item.summary {
+
+}
+
+.content-head-item.type {
+    width: 80px;
+}
+
+.content-head-item.status {
+    width: 80px;
+}
+
+.content-head-item.operation {
+    width: 140px;
+}
+
+
+.content-body ul {
+    height: 50px;
+    border-bottom: 1px solid #ccc;
+}

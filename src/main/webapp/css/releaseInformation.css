@@ -1,0 +1,48 @@
+.form-box {
+    width: 800px;
+    margin: 0 auto;
+    padding: 20px 30px;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.form-group {
+    padding: 10px;
+    text-align: center;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 80px;
+}
+
+.form-group .form-item {
+    width: 500px;
+    height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+    outline: none;
+
+}
+
+.form-group textarea {
+    width: 500px;
+    height: 100px;
+    resize: none;
+    outline: none;
+}
+
+.form-group button {
+    width: 200px;
+    height: 40px;
+    background: #dfe4ea;
+    border-radius: 10px;
+    outline: none;
+}
+
+.checkCode {
+    width: 400px;
+    height: 40px;
+    outline: none;
+}

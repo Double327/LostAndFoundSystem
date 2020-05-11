@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" href="css/base.css">
+	<link href="css/common.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<!--Header Start-->
+<div class="header">
+	<a class="header-brand" href="#">失物招领系统</a>
+	<div class="nav left">
+		<ul>
+			<li class="nav-item"><a href="#">首页</a></li>
+			<li class="nav-item"><a href="#">失物招领信息</a></li>
+			<li class="nav-item"><a href="#">发布新信息</a></li>
+		</ul>
+	</div>
+
+	<ul class="nav-user right">
+		<!--已登录时显示-->
+<!--		<li class="nav-item user-info">
+			<a href="#"><img alt="Double" class="user-avatar" src="../img/avatar.jpg"><span class="user-name">Double</span></a>
+			<div class="dropdown" id="user-dropdown">
+				<a class="dropdown-item" href="">个人中心</a>
+				<a class="dropdown-item" href="">我的发布</a>
+				<a class="dropdown-item" href="">退出登录</a>
+			</div>
+		</li>-->
+		<!--未登录时显示-->
+		<li class="nav-item"><a href="#">注册</a></li>
+		<li class="nav-item"><a href="#">登录</a></li>
+	</ul>
+</div>
+<!--Header End-->
+
+<!--Login Form Start-->
+
+<div class="login-box">
+	<form action="#" class="login-form">
+		<div class="logo">
+			登录
+		</div>
+		<div class="form-item">
+			<i class="iconfont icon">&#xe773;</i><input type="text" class="text" name="username" placeholder="请输入用户名...">
+			<p class="tip">请输入密码</p>
+		</div>
+		<div class="form-item">
+			<i class="iconfont icon">&#xe75b;</i><input type="password" class="text" name="password" placeholder="请输入密码...">
+			<p class="tip">请输入密码</p>
+		</div>
+		<div class="form-item">
+			<button type="button">登录</button>
+		</div>
+		<div class="form-item">
+			<button type="reset">重置</button>
+		</div>
+
+		<div class="form-item">
+			<a href="#" class="link-item">忘记密码？</a>
+			<a href="#" class="link-item">立即注册</a>
+		</div>
+	</form>
+</div>
+
+<!--Login Form End-->
+</body>
+</html>
