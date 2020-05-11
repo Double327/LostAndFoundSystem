@@ -11,17 +11,21 @@ public class User {
     private String email;
     private String phoneNum;
     private String qq;
+    private String avatar;
+    private Integer role;
 
     public User() {
     }
 
-    public User(String id, String username, String password, String email, String phoneNum, String qq) {
+    public User(String id, String username, String password, String email, String phoneNum, String qq, String avatar, Integer role) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.phoneNum = phoneNum;
         this.qq = qq;
+        this.avatar = avatar;
+        this.role = role;
     }
 
     public String getId() {
@@ -70,6 +74,22 @@ public class User {
 
     public void setQq(String qq) {
         this.qq = qq;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Integer getRole() {
+        return role;
+    }
+
+    public void setRole(Integer role) {
+        this.role = role;
     }
 
     @Override

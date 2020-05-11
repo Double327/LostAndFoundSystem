@@ -6,43 +6,22 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%
+    String path = request.getContextPath();
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
-    <link href="css/base.css" rel="stylesheet">
-    <link href="css/common.css" rel="stylesheet">
-    <link href="css/register.css" rel="stylesheet">
+    <link href="<%=path%>/css/base.css" rel="stylesheet">
+    <link href="<%=path%>/css/common.css" rel="stylesheet">
+    <link href="<%=path%>/css/register.css" rel="stylesheet">
 </head>
 <body>
 
 <!--Header Start-->
-<div class="header">
-    <a class="header-brand" href="#">失物招领系统</a>
-    <div class="nav left">
-        <ul>
-            <li class="nav-item"><a href="#">首页</a></li>
-            <li class="nav-item"><a href="#">失物招领信息</a></li>
-            <li class="nav-item"><a href="#">发布新信息</a></li>
-        </ul>
-    </div>
-
-    <ul class="nav-user right">
-        <!--已登录时显示-->
-        <!--		<li class="nav-item user-info">
-                    <a href="#"><img alt="Double" class="user-avatar" src="../img/avatar.jpg"><span class="user-name">Double</span></a>
-                    <div class="dropdown" id="user-dropdown">
-                        <a class="dropdown-item" href="">个人中心</a>
-                        <a class="dropdown-item" href="">我的发布</a>
-                        <a class="dropdown-item" href="">退出登录</a>
-                    </div>
-                </li>-->
-        <!--未登录时显示-->
-        <li class="nav-item"><a href="#">注册</a></li>
-        <li class="nav-item"><a href="#">登录</a></li>
-    </ul>
-</div>
+<jsp:include page="header.jsp"/>
 <!--Header End-->
 
 
@@ -50,7 +29,7 @@
 
 <div class="register-box">
     <div class="register-form">
-        <form class="">
+        <form action="<%=path%>/user/register" method="post" class="">
             <div class="form-item">
                 <i class="iconfont icon">&#xe773;</i>
                 <input id="username" name="username" placeholder="请输入用户名" type="text">
@@ -144,6 +123,7 @@
 <!--Register Form End-->
 
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="<%=path%>/js/common.js"></script>
 <script>
 
 

@@ -24,19 +24,19 @@
         <!--已登录时显示-->
         <c:if test="${! empty sessionScope.user}">
             <li class="user-content nav-item user-info">
-                <a href="#"><img alt="Double" class="user-avatar" src="<%=path%>/upload/${user.image}"><span
+                <a href="#"><img alt="Double" class="user-avatar" src="<%=path%>/upload/avatar.jpg}"><span
                         class="user-name">${user.username}</span></a>
                 <div class="dropdown" id="user-dropdown">
                     <a class="dropdown-item" href="#">个人中心</a>
                     <a class="dropdown-item" href="#">我的发布</a>
-                    <a class="dropdown-item" href="#">退出登录</a>
+                    <a class="dropdown-item" href="<%=path%>/user/logout">退出登录</a>
                 </div>
             </li>
         </c:if>
         <!--未登录时显示-->
         <c:if test="${empty sessionScope.user}">
-            <li class="nav-item"><a href="#">注册</a></li>
-            <li class="nav-item"><a href="#">登录</a></li>
+            <li class="nav-item"><a href="<%=path%>/user/toLogin">注册</a></li>
+            <li class="nav-item"><a href="<%=path%>/user/toRegister">登录</a></li>
         </c:if>
     </ul>
 </div>
