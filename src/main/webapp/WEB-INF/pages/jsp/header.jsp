@@ -24,7 +24,7 @@
         <!--已登录时显示-->
         <c:if test="${! empty sessionScope.user}">
             <li class="user-content nav-item user-info">
-                <a href="#"><img alt="Double" class="user-avatar" src="<%=path%>/upload/avatar.jpg}"><span
+                <a href="#"><img alt="Double" class="user-avatar" src="<%=path%>/upload/${user.avatar}"><span
                         class="user-name">${user.username}</span></a>
                 <div class="dropdown" id="user-dropdown">
                     <a class="dropdown-item" href="#">个人中心</a>

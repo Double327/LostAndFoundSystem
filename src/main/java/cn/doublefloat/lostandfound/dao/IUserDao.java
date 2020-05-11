@@ -33,7 +33,7 @@ public interface IUserDao {
      * 更新除ID外所有用户信息
      * @param user 用户信息
      */
-    @Update("update Users set username = #{username}, password = #{password}, email = #{email}, phonenum = #{phoneNum}, qq = #{qq};")
+    @Update("update Users set username = #{username}, password = #{password}, email = #{email}, phonenum = #{phoneNum}, qq = #{qq}, avatar = #{avatar}, role = #{role};")
     public void updateUser(User user);
 
     /**
@@ -75,6 +75,23 @@ public interface IUserDao {
      */
     @Update("update Users set qq = #{qq} where id = #{id};")
     public void updateQQ(@Param("id") String id, @Param("qq") String qq);
+
+    /**
+     * 更新头像
+     * @param id 用户ID
+     * @param avatar 头像
+     */
+    @Update("update Users set avatar = #{avatar} where id = #{id};")
+    public void updateAvatar(@Param("id") String id, @Param("avatar") String avatar);
+
+
+    /**
+     * 更新用户角色
+     * @param id 用户ID
+     * @param role 角色
+     */
+    @Update("update Users set role = #{role} where id = #{id};")
+    public void updateRole(@Param("id") String id, @Param("role") String role);
 
     /**
      * 获取所有用户信息
