@@ -35,8 +35,8 @@
         </c:if>
         <!--未登录时显示-->
         <c:if test="${empty sessionScope.user}">
-            <li class="nav-item"><a href="<%=path%>/user/toLogin">注册</a></li>
-            <li class="nav-item"><a href="<%=path%>/user/toRegister">登录</a></li>
+            <li class="nav-item"><a href="<%=path%>/user/toRegister">注册</a></li>
+            <li class="nav-item"><a href="<%=path%>/user/toLogin">登录</a></li>
         </c:if>
     </ul>
 </div>
