@@ -5,58 +5,39 @@
   Time: 2:13 下午
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"  %>
+<%
+    String path = request.getContextPath();
+%>
 <!DOCTYPE html>
-<html lang="ch-ZN">
+<html lang="zh">
 <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta charset="UTF-8">
     <title>发布新信息</title>
-    <link rel="stylesheet" href="css/base.css">
-    <link href="css/common.css" rel="stylesheet">
-    <link href="css/releaseInformation.css" rel="stylesheet">
+    <link href="<%=path%>/css/base.css" rel="stylesheet">
+    <link href="<%=path%>/css/common.css" rel="stylesheet">
+    <link href="<%=path%>/css/releaseInformation.css" rel="stylesheet">
 </head>
 <body>
 <!--Header Start-->
-<div class="header">
-    <a class="header-brand" href="#">失物招领系统</a>
-    <div class="nav left">
-        <ul>
-            <li class="nav-item"><a href="#">首页</a></li>
-            <li class="nav-item"><a href="#">失物招领信息</a></li>
-            <li class="nav-item"><a href="#">发布新信息</a></li>
-        </ul>
-    </div>
+<jsp:include page="header.jsp"/>
 
-    <ul class="nav-user right">
-        <!--已登录时显示-->
-        <li class="nav-item user-info">
-            <a href="#"><img alt="Double" class="user-avatar" src="img/avatar.jpg"><span class="user-name">Double</span></a>
-            <div class="dropdown" id="user-dropdown">
-                <a class="dropdown-item" href="">个人中心</a>
-                <a class="dropdown-item" href="">我的发布</a>
-                <a class="dropdown-item" href="">退出登录</a>
-            </div>
-        </li>
-        <!--未登录时显示-->
-        <!--		<li class="nav-item"><a href="#">注册</a></li>
-                <li class="nav-item"><a href="#">登录</a></li>-->
-    </ul>
-</div>
 <!--Header End-->
 
 
 <!--Information Form Start-->
 <div class="form-box">
-    <form action="" class="form">
+    <form action="<%=path%>/laf/addLafInfo" class="form" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="title">标题</label>
-            <input class="form-item" id="title" placeholder="请输入标题" type="text">
+            <input class="form-item" id="title" name="title" placeholder="请输入标题" type="text">
         </div>
         <div class="form-group">
             <label for="lost">遗失</label>
-            <input class="" id="lost" name="infoType" type="radio">
+            <input class="" id="lost" name="type" type="radio" value="1">
             <label for="find">捡到</label>
-            <input class="" id="find" name="infoType" type="radio">
+            <input class="" id="find" name="type" type="radio" value="2">
         </div>
         <div class="form-group">
             <label for="lostTime">遗失时间</label>
@@ -64,7 +45,7 @@
         </div>
         <div class="form-group">
             <label for="lostLocation">遗失地点</label>
-            <input class="form-item" id="lostLocation" name="lostLocation" placeholder="请输入遗失地点" type="text">
+            <input class="form-item" id="lostLocation" name="lostPosition" placeholder="请输入遗失地点" type="text">
         </div>
         <div class="form-group">
             <label for="summary">物品描述</label>
@@ -72,7 +53,7 @@
         </div>
         <div class="form-group">
             <label for="img">物品图片</label>
-            <input class="form-item" id="img" name="lostLocation" type="file">
+            <input class="form-item" id="img" name="upload" type="file">
         </div>
         <div class="form-group">
             <label for="canvas">验证码</label>
@@ -96,12 +77,12 @@
 <!--Footer End-->
 
 <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/common.js"></script>
+<script src="<%=path%>/js/common.js"></script>
 <script>
-    $(()=>{
+    $(() => {
         let checkCode = [];
         drawCheckCode(checkCode)
-        $('#releaseBtn').on('click', ()=>{
+        $('#releaseBtn').on('click', () => {
             if ($('#title').val() === '') {
                 showAlert('请输入用户名!');
                 return false;
@@ -138,7 +119,7 @@
             }
         });
 
-        $('#canvas').on('click', ()=>{
+        $('#canvas').on('click', () => {
             drawCheckCode(checkCode);
         });
     });

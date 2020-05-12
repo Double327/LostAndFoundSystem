@@ -11,12 +11,14 @@
     String path = request.getContextPath();
 %>
 <div class="header">
-    <a class="header-brand" href="#">失物招领系统</a>
+    <a class="header-brand" href="<%=path%>/index">失物招领系统</a>
     <div class="nav left">
         <ul>
             <li class="nav-item"><a href="<%=path%>/index">首页</a></li>
-            <li class="nav-item"><a href="#">失物招领信息</a></li>
-            <li class="nav-item"><a href="#">发布新信息</a></li>
+            <li class="nav-item"><a href="<%=path%>/laf/lafList">失物招领信息</a></li>
+            <c:if test="${!empty sessionScope.user}">
+                <li class="nav-item"><a href="<%=path%>/laf/toReleaseLafInfo">发布新信息</a></li>
+            </c:if>
         </ul>
     </div>
 
