@@ -75,9 +75,6 @@
 
 
 <!--Footer End-->
-
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="<%=path%>/js/common.js"></script>
 <script>
     $(() => {
         let checkCode = [];

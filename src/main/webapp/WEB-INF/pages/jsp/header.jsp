@@ -29,7 +29,7 @@
                 <a href="#"><img alt="Double" class="user-avatar" src="<%=path%>/upload/${user.avatar}"><span
                         class="user-name">${user.username}</span></a>
                 <div class="dropdown" id="user-dropdown">
-                    <a class="dropdown-item" href="#">个人中心</a>
+                    <a class="dropdown-item" href="<%=path%>/user/toUserInfo">个人中心</a>
                     <a class="dropdown-item" href="#">我的发布</a>
                     <a class="dropdown-item" href="<%=path%>/user/logout">退出登录</a>
                 </div>
@@ -42,3 +42,14 @@
         </c:if>
     </ul>
 </div>
+
+
+<script crossorigin="anonymous"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"></script>
+<script src="<%=path%>/js/common.js"></script>
+<script>
+    $(() => {
+        navDropDown();
+    });
+</script>

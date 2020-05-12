@@ -91,4 +91,14 @@ public class UserController {
     public String toRegister() {
         return "register";
     }
+
+
+    /**
+     * 跳转至用户个人信息页面
+     * @return 个人信息页面
+     */
+    @RequestMapping("/toUserInfo")
+    public String toUserInformation() {
+        return "userInformation";
+    }
 }

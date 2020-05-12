@@ -56,16 +56,7 @@
 </footer>
 
 <!--Footer End-->
-
-<script crossorigin="anonymous"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.slim.min.js"></script>
-<script src="<%=path%>/js/common.js"></script>
 <script>
-
-    window.onload = () => {
-        navDropDown();
-    }
 </script>
 </body>
 </html>
