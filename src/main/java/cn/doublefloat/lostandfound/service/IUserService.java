@@ -74,6 +74,13 @@ public interface IUserService {
     public List<User> getAllUsers();
 
     /**
+     * 查找所有角色等级小于给定等级的用户
+     * @param role 角色等级
+     * @return 用户信息
+     */
+    public List<User> getUsersByUnderRole(Integer role);
+
+    /**
      * 根据用户ID获取用户信息
      * @param id 用户ID
      * @return 用户信息

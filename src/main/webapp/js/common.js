@@ -78,8 +78,3 @@ function navDropDown() {
         $('#user-dropdown').css('display', 'none');
     });
 }
-
-function deleteElement(id) {
-    let idSelector = '#' + id;
-    $(idSelector).remove();
-}

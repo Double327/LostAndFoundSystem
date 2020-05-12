@@ -25,11 +25,15 @@ public class TestUserService {
 
     @Test
     public void testAddUser() {
-        User user = new User();
-        user.setUsername("root");
-        user.setPassword(LAFUtils.getMD5("root"));
-        user.setEmail("203814477@qq.com");
-        userService.addUser(user);
+        for (int i = 3; i <= 100; i++) {
+            String username = "test" + i;
+            String email = "test" + i + "@qq.com";
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(LAFUtils.getMD5("123456"));
+            user.setEmail(email);
+            userService.addUser(user);
+        }
     }
 
     @Test

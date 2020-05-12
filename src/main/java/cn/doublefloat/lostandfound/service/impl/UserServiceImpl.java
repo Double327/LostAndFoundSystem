@@ -68,6 +68,11 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
+    public List<User> getUsersByUnderRole(Integer role) {
+        return userDao.getUsersUnderRole(role);
+    }
+
+    @Override
     public User getUserById(String id) {
         return userDao.getUserById(id);
     }
@@ -79,6 +84,6 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public Boolean checkUsernameExist(String username) {
-        return userDao.getUsersByUsername(username) == null;
+        return userDao.getUsersByUsername(username).size() > 0;
     }
 }

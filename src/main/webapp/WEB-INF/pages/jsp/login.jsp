@@ -42,7 +42,7 @@
             <p class="tip">请输入密码</p>
         </div>
         <div class="form-item">
-            <button type="submit">登录</button>
+            <button id="login" type="submit">登录</button>
         </div>
         <div class="form-item">
             <button type="reset">重置</button>

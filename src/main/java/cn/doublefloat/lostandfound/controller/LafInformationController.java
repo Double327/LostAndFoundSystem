@@ -2,8 +2,12 @@ package cn.doublefloat.lostandfound.controller;
 
 import cn.doublefloat.lostandfound.entity.LafInformation;
 import cn.doublefloat.lostandfound.entity.User;
+import cn.doublefloat.lostandfound.service.ILafInformationService;
 import cn.doublefloat.lostandfound.utils.LAFUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -12,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @author 李广帅
@@ -21,12 +26,18 @@ import java.io.IOException;
 @RequestMapping("/laf")
 public class LafInformationController {
 
+    @Autowired
+    @Qualifier("lafInformationService")
+    private ILafInformationService lafInformationService;
+
     /**
      * 处理信息列表页请求
      * @return 信息列表页
      */
     @RequestMapping("/lafList")
-    public String lafInfoList() {
+    public String lafInfoList(Model model) {
+        List<LafInformation> lafInformationList = lafInformationService.getAllInformation();
+        model.addAttribute("lafInformationList", lafInformationList);
         return "lafInfoList";
     }
 
@@ -57,7 +68,7 @@ public class LafInformationController {
             e.printStackTrace();
             System.out.println("图片上传失败");
         }
-
+        lafInformationService.addLafInformation(lafInfo);
         return "redirect:/laf/lafList";
     }
 

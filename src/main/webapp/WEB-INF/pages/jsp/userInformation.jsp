@@ -27,23 +27,7 @@
 <!-- Main Start -->
 <div class="w">
     <div class="main box-shadow">
-        <div class="hd">
-            <div class="avatar">
-                <img src="<%=path%>/upload/${user.avatar}" alt="">
-            </div>
-            <div class="user-primary">
-                <p class="username">${user.username}</p>
-                <c:if test="${user.role eq 1}">
-                    <p class="user-role">普通用户</p>
-                </c:if>
-                <c:if test="${user.role eq 2}">
-                    <p class="user-role">管理员</p>
-                </c:if>
-                <c:if test="${user.role eq 3}">
-                    <p class="user-role">超级管理员</p>
-                </c:if>
-            </div>
-        </div>
+        <jsp:include page="userBaseInfo.jsp"/>
         <div class="bd">
             <div class="bd-nav">
                 <ul>
@@ -51,7 +35,7 @@
                     <li class="bd-nav-item"><a href="#">发布信息管理</a></li>
                     <li class="bd-nav-item"><a href="#">最新通知</a></li>
                     <c:if test="${user.role eq 1 or user.role eq 2}">
-                        <li class="bd-nav-item"><a href="#">用户管理</a></li>
+                        <li class="bd-nav-item"><a href="<%=path%>/user/userManagement">用户管理</a></li>
                         <li class="bd-nav-item"><a href="#">系统通知管理</a></li>
                     </c:if>
                     <c:if test="${user.role eq 2}">

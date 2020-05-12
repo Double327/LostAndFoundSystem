@@ -122,7 +122,7 @@
 </div>
 <!--Register Form End-->
 
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="<%=path%>/js/jquery-3.5.0.min.js"></script>
 <script src="<%=path%>/js/common.js"></script>
 <script>
 
@@ -137,15 +137,20 @@
 
         $('#register').on('click', () => {
 
-            if (!$('#agreementCheckBox').is(':checked')) {
-                showAlert('请勾选并同意《用户注册协议》！');
-                return false;
-            }
-
             if ($('#username').val() === '') {
                 showAlert('请输入用户名！');
                 return false;
             }
+
+            <%--$.getJSON("<%=path%>/user/checkUsernameExist", {--%>
+            <%--    'username': $('#username').val()--%>
+            <%--}, (response) => {--%>
+            <%--    if (response.status === false) {--%>
+            <%--        showAlert("用户名已存在!")--%>
+            <%--        return false;--%>
+            <%--    }--%>
+            <%--});--%>
+
             if ($('#password').val() === '') {
                 showAlert('请输入密码！');
                 return false;
@@ -163,6 +168,11 @@
                 return false;
             }
 
+            if (!$('#agreementCheckBox').is(':checked')) {
+                showAlert('请勾选并同意《用户注册协议》！');
+                return false;
+            }
+
             if ($('#checkCode').val() === '') {
                 showAlert('请输入验证码！');
                 return false;
@@ -173,6 +183,8 @@
                 $('#checkCode').val('');
                 return false;
             }
+
+
         });
 
     });
