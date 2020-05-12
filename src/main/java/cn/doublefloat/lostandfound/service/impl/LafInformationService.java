@@ -50,8 +50,18 @@ public class LafInformationService implements ILafInformationService {
     }
 
     @Override
+    public List<LafInformation> getAllInformationByStatus(Integer status) {
+        return lafInformationDao.getAllInformationByStatus(status);
+    }
+
+    @Override
     public LafInformation getLafInfoById(String id) {
         return lafInformationDao.getLafInfoById(id);
+    }
+
+    @Override
+    public List<LafInformation> getLafInfoByUserId(String userId) {
+        return lafInformationDao.getLafInfoByUserId(userId);
     }
 
     @Override

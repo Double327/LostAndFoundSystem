@@ -32,12 +32,16 @@
         <div class="bd">
             <div class="bd-nav">
                 <ul>
-                    <li class="bd-nav-item"><a href="#">账户管理</a></li>
-                    <li class="bd-nav-item"><a href="#">发布信息管理</a></li>
+                    <li class="bd-nav-item"><a href="<%=path%>/user/toUserInfo">账户管理</a></li>
+                    <li class="bd-nav-item"><a href="<%=path%>/laf/lafInfoManagement">发布信息管理</a></li>
                     <li class="bd-nav-item"><a href="#">最新通知</a></li>
-                    <li class="bd-nav-item"><a class="current" href="#">用户管理</a></li>
-                    <li class="bd-nav-item"><a href="#">系统通知管理</a></li>
-                    <li class="bd-nav-item"><a href="#">系统设置</a></li>
+                    <c:if test="${user.role eq 1 or user.role eq 2}">
+                        <li class="bd-nav-item"><a class="current" href="<%=path%>/user/userManagement">用户管理</a></li>
+                        <li class="bd-nav-item"><a href="#">系统通知管理</a></li>
+                    </c:if>
+                    <c:if test="${user.role eq 2}">
+                        <li class="bd-nav-item"><a href="#">系统设置</a></li>
+                    </c:if>
                 </ul>
             </div>
             <div class="title">

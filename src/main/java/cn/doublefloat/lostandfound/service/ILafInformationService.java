@@ -54,6 +54,14 @@ public interface ILafInformationService {
      */
     List<LafInformation> getAllInformation();
 
+    /**
+     * 根据状态查找丢失、找回信息
+     *
+     * @param status 状态
+     * @return 信息
+     */
+    List<LafInformation> getAllInformationByStatus(Integer status);
+
 
     /**
      * 根据ID获取信息
@@ -62,6 +70,14 @@ public interface ILafInformationService {
      * @return 信息
      */
     LafInformation getLafInfoById(String id);
+
+    /**
+     * 根据作者ID查找
+     *
+     * @param userId 作者ID
+     * @return 信息
+     */
+    List<LafInformation> getLafInfoByUserId(String userId);
 
 
     /**

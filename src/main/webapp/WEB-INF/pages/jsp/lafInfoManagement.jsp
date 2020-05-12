@@ -23,9 +23,9 @@
 <head>
     <meta charset="UTF-8">
     <title>个人中心</title>
-    <link href="css/base.css" rel="stylesheet">
-    <link href="css/common.css" rel="stylesheet">
-    <link href="css/informationManagement.css" rel="stylesheet">
+    <link href="<%=path%>/css/base.css" rel="stylesheet">
+    <link href="<%=path%>/css/common.css" rel="stylesheet">
+    <link href="<%=path%>/css/informationManagement.css" rel="stylesheet">
 </head>
 <body>
 <!--Header Start-->
@@ -33,7 +33,6 @@
 <!--Header End-->
 
 <!--Main Start-->
-<!-- Main Start -->
 <div class="w">
     <div class="main box-shadow">
         <div class="hd">
@@ -56,17 +55,28 @@
         <div class="bd">
             <div class="bd-nav">
                 <ul>
-                    <li class="bd-nav-item"><a href="#">账户管理</a></li>
-                    <li class="bd-nav-item"><a class="current" href="#">发布信息管理</a></li>
+                    <li class="bd-nav-item"><a href="<%=path%>/user/toUserInfo">账户管理</a></li>
+                    <li class="bd-nav-item"><a class="current" href="<%=path%>/laf/lafInfoManagement">发布信息管理</a></li>
                     <li class="bd-nav-item"><a href="#">最新通知</a></li>
-                    <li class="bd-nav-item"><a href="#">用户管理</a></li>
-                    <li class="bd-nav-item"><a href="#">系统通知管理</a></li>
-                    <li class="bd-nav-item"><a href="#">系统设置</a></li>
+                    <c:if test="${user.role eq 1 or user.role eq 2}">
+                        <li class="bd-nav-item"><a href="<%=path%>/user/userManagement">用户管理</a></li>
+                        <li class="bd-nav-item"><a href="#">系统通知管理</a></li>
+                    </c:if>
+                    <c:if test="${user.role eq 2}">
+                        <li class="bd-nav-item"><a href="#">系统设置</a></li>
+                    </c:if>
                 </ul>
             </div>
             <div class="title">
                 <h5>我的发布</h5>
-                <p>总条数: <span>100</span></p>
+                <p>总条数:<span id="total-laf-info">
+                    <c:if test="${!empty lafInformationList}">
+                        ${lafInformationList.size()}
+                    </c:if>
+                    <c:if test="${empty lafInformationList}">
+                        0
+                    </c:if>
+                </span></p>
             </div>
             <div class="content">
                 <div class="content-head">
@@ -79,146 +89,42 @@
                     </ul>
                 </div>
                 <div class="content-body clearfix">
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
-                    <ul>
-                        <li class="content-head-item con-title">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item summary">江苏省徐州市经济开发区江苏省徐州市经济开发区</li>
-                        <li class="content-head-item type">丢失</li>
-                        <li class="content-head-item status">未找到</li>
-                        <li class="content-head-item operation">
-                            <button class="btn detail">详情</button>
-                            <button class="btn update">修改</button>
-                            <button class="btn delete">删除</button>
-                        </li>
-                    </ul>
+                    <c:if test="${!empty lafInformationList}">
+                        <c:forEach items="${lafInformationList}" var="lafInfo">
+                            <ul>
+                                <li class="content-head-item con-title">${lafInfo.title}</li>
+                                <li class="content-head-item summary">${lafInfo.summary}</li>
+                                <c:if test="${lafInfo.type eq 1}">
+                                    <li class="content-head-item type">丢失</li>
+                                </c:if>
+                                <c:if test="${lafInfo.type eq 2}">
+                                    <li class="content-head-item type">捡到</li>
+                                </c:if>
+                                <c:if test="${lafInfo.status eq 1}">
+                                    <li class="content-head-item status">未找到</li>
+                                </c:if>
+                                <c:if test="${lafInfo.status eq 2}">
+                                    <li class="content-head-item status">已找到</li>
+                                </c:if>
+                                <li class="content-head-item operation">
+                                    <button class="btn detail">详情</button>
+                                    <button class="btn update">修改</button>
+                                    <button class="btn delete">删除</button>
+                                </li>
+                            </ul>
+                        </c:forEach>
+                    </c:if>
+                    <c:if test="${empty lafInformationList}">
+                        <ul>
+                            <li style="text-align: center">暂无信息</li>
+                        </ul>
+                    </c:if>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Main End -->
-<!--Main End-->
-
 
 <!--Footer Start-->
 <footer>
@@ -227,8 +133,6 @@
 </footer>
 
 <!--Footer End-->
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="js/common.js"></script>
 <script>
     $(() => {
         navDropDown();

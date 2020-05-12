@@ -11,7 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -32,11 +31,12 @@ public class LafInformationController {
 
     /**
      * 处理信息列表页请求
+     *
      * @return 信息列表页
      */
     @RequestMapping("/lafList")
     public String lafInfoList(Model model) {
-        List<LafInformation> lafInformationList = lafInformationService.getAllInformation();
+        List<LafInformation> lafInformationList = lafInformationService.getAllInformationByStatus(1);
         model.addAttribute("lafInformationList", lafInformationList);
         return "lafInfoList";
     }
@@ -44,10 +44,11 @@ public class LafInformationController {
 
     /**
      * 添加新丢失、找回信息
+     *
      * @param request 请求信息
      * @param session session对象
      * @param lafInfo 信息内容
-     * @param upload 上传图片
+     * @param upload  上传图片
      * @return 转发至信息列表页
      */
     @RequestMapping(value = "/addLafInfo", method = RequestMethod.POST)
@@ -73,7 +74,23 @@ public class LafInformationController {
     }
 
     /**
+     * 个人发布丢失、找回信息管理
+     * @param session session对象
+     * @param model 数据
+     * @return 发布管理页
+     */
+    @RequestMapping("/lafInfoManagement")
+    public String lafInfoManagement(HttpSession session, Model model) {
+        User user = (User) session.getAttribute("user");
+        System.out.println(user);
+        List<LafInformation> lafInformationList = lafInformationService.getLafInfoByUserId(user.getId());
+        model.addAttribute("lafInformationList", lafInformationList);
+        return "lafInfoManagement";
+    }
+
+    /**
      * 跳转至发布信息页
+     *
      * @return 发布信息页
      */
     @RequestMapping("/toReleaseLafInfo")

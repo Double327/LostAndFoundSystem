@@ -69,6 +69,14 @@ public interface ILafInformationDao {
     @Select("select * from LAFInformation")
     List<LafInformation> getAllInformation();
 
+    /**
+     * 根据状态查找丢失、找回信息
+     * @param status 状态
+     * @return 信息
+     */
+    @Select("select * from LAFInformation where status = #{status}")
+    List<LafInformation> getAllInformationByStatus(Integer status);
+
 
     /**
      * 根据ID获取信息
@@ -79,6 +87,15 @@ public interface ILafInformationDao {
     @Select("select * from LAFInformation where id = #{id}")
     LafInformation getLafInfoById(String id);
 
+
+    /**
+     * 根据作者ID查找
+     * @param userId 作者ID
+     * @return 信息
+     */
+    @ResultMap("lafInfoResultMap")
+    @Select("select * from LAFInformation where user_id = #{userId}")
+    List<LafInformation> getLafInfoByUserId(String userId);
 
     /**
      * 根据标题获取信息
