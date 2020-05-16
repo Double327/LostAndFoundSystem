@@ -69,16 +69,18 @@ public interface IUserService {
 
     /**
      * 获取所有用户信息
+     * @param page 当前页数
      * @return 所有用户信息
      */
-    public List<User> getAllUsers();
+    public List<User> getAllUsersWithPage(Integer page);
 
     /**
      * 查找所有角色等级小于给定等级的用户
      * @param role 角色等级
+     * @param page 当前页数
      * @return 用户信息
      */
-    public List<User> getUsersByUnderRole(Integer role);
+    public List<User> getUsersByUnderRoleWithPage(Integer role, Integer page);
 
     /**
      * 根据用户ID获取用户信息
@@ -101,4 +103,10 @@ public interface IUserService {
      * @return 存在：true 不存在：false
      */
     public Boolean checkUsernameExist(String username);
+
+    /**
+     * 获取用户总数
+     * @return 用户总数
+     */
+    public Integer getQuantityOfUsers();
 }

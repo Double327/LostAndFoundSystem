@@ -21,6 +21,15 @@ public class UserServiceImpl implements IUserService {
     @Qualifier("userDao")
     private IUserDao userDao;
 
+    /**
+     * 一页显示的数据条数
+     */
+    private final Integer pageLine;
+
+    public UserServiceImpl() {
+        pageLine = 8;
+    }
+
     @Override
     public void addUser(User user) {
         user.setId(LAFUtils.getId());
@@ -63,14 +72,23 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+    public List<User> getAllUsersWithPage(Integer page) {
+        Integer start = 0;
+        if (page != null) {
+            start = (page - 1) * pageLine;
+        }
+        return userDao.getAllUsersWithPage(start, pageLine);
     }
 
     @Override
-    public List<User> getUsersByUnderRole(Integer role) {
-        return userDao.getUsersUnderRole(role);
+    public List<User> getUsersByUnderRoleWithPage(Integer role, Integer page) {
+        Integer start = 0;
+        if (page != null) {
+            start = (page - 1) * pageLine;
+        }
+        return userDao.getUsersUnderRoleWithPage(role, start, pageLine);
     }
+
 
     @Override
     public User getUserById(String id) {
@@ -85,5 +103,10 @@ public class UserServiceImpl implements IUserService {
     @Override
     public Boolean checkUsernameExist(String username) {
         return userDao.getUsersByUsername(username).size() > 0;
+    }
+
+    @Override
+    public Integer getQuantityOfUsers() {
+        return userDao.getQuantityOfUsers();
     }
 }

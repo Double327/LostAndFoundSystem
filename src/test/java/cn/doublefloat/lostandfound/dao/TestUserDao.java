@@ -72,7 +72,7 @@ public class TestUserDao {
 
     @Test
     public void testGetAllUsers() {
-        List<User> users = userDao.getAllUsers();
+        List<User> users = userDao.getAllUsersWithPage(1, 8);
         for (User user : users) {
             System.out.println(user);
         }

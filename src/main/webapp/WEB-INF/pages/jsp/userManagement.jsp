@@ -48,7 +48,7 @@
                 <h5>用户管理</h5>
                 <p>用户数: <span>100</span></p>
             </div>
-            <div class="content">
+            <div class="content clearfix">
                 <div class="content-head">
                     <ul>
                         <li class="content-head-item uUsername">用户名</li>
@@ -83,6 +83,20 @@
                         </ul>
                     </c:forEach>
                 </div>
+                <div class="page-num">
+                    <a id="prevPage" href="<%=path%>/user/userManagement?page=${thisPage - 1}"
+                       class="page-num-item prev">上一页</a>
+                    <c:forEach var="i" begin="1" end="${userCount / 8 + 1}" step="1">
+                        <c:if test="${thisPage == i}">
+                            <a href="<%=path%>/user/userManagement?page=${i}" class="page-num-item current">${i}</a>
+                        </c:if>
+                        <c:if test="${ thisPage != i}">
+                            <a href="<%=path%>/user/userManagement?page=${i}" class="page-num-item">${i}</a>
+                        </c:if>
+                    </c:forEach>
+                    <a id="nextPage" href="<%=path%>/user/userManagement?page=${thisPage + 1}"
+                       class="page-num-item next">下一页</a>
+                </div>
             </div>
         </div>
     </div>
@@ -103,6 +117,13 @@
 <script>
     $(() => {
         navDropDown();
+        if (parseInt(${thisPage}) === 1) {
+            $('#prevPage').attr('href', 'javascript:;');
+        }
+
+        if (parseInt(${thisPage}) === parseInt(parseInt(${userCount}) / 8) + 1) {
+            $('#nextPage').attr('href', 'javascript:;');
+        }
     });
 
     function deleteUser(id) {

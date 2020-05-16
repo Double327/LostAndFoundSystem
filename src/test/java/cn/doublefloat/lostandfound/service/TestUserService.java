@@ -77,7 +77,7 @@ public class TestUserService {
 
     @Test
     public void testGetAllUsers() {
-        List<User> users = userService.getAllUsers();
+        List<User> users = userService.getAllUsersWithPage(1);
         for (User user : users) {
             System.out.println(user);
         }

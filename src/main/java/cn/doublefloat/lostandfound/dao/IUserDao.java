@@ -15,6 +15,7 @@ public interface IUserDao {
 
     /**
      * 添加用户信息
+     *
      * @param user 用户信息
      */
     @Insert("insert into Users (id, username, password, email) values (#{id}, #{username}, #{password}, #{email})")
@@ -23,6 +24,7 @@ public interface IUserDao {
 
     /**
      * 根据用户ID删除用户信息
+     *
      * @param id 用户ID
      */
     @Delete("delete from Users where id = #{id}")
@@ -31,6 +33,7 @@ public interface IUserDao {
 
     /**
      * 更新除ID外所有用户信息
+     *
      * @param user 用户信息
      */
     @Update("update Users set username = #{username}, password = #{password}, email = #{email}, phonenum = #{phoneNum}, qq = #{qq}, avatar = #{avatar}, role = #{role};")
@@ -38,7 +41,8 @@ public interface IUserDao {
 
     /**
      * 更新用户名
-     * @param id 用户ID
+     *
+     * @param id       用户ID
      * @param username 新用户名
      */
     @Update("update Users set username = #{username} where id = #{id};")
@@ -46,7 +50,8 @@ public interface IUserDao {
 
     /**
      * 更新密码
-     * @param id 用户ID
+     *
+     * @param id       用户ID
      * @param password 新用户密码
      */
     @Update("update Users set password = #{password} where id = #{id};")
@@ -54,7 +59,8 @@ public interface IUserDao {
 
     /**
      * 更新手机号
-     * @param id 用户ID
+     *
+     * @param id       用户ID
      * @param phoneNum 新用户手机号
      */
     @Update("update Users set phonenum = #{phoneNum} where id = #{id};")
@@ -62,7 +68,8 @@ public interface IUserDao {
 
     /**
      * 更新邮箱
-     * @param id 用户ID
+     *
+     * @param id    用户ID
      * @param email 新用户邮箱
      */
     @Update("update Users set email = #{email} where id = #{id};")
@@ -70,6 +77,7 @@ public interface IUserDao {
 
     /**
      * 更新QQ号码
+     *
      * @param id 用户ID
      * @param qq 新用户QQ
      */
@@ -78,7 +86,8 @@ public interface IUserDao {
 
     /**
      * 更新头像
-     * @param id 用户ID
+     *
+     * @param id     用户ID
      * @param avatar 头像
      */
     @Update("update Users set avatar = #{avatar} where id = #{id};")
@@ -87,7 +96,8 @@ public interface IUserDao {
 
     /**
      * 更新用户角色
-     * @param id 用户ID
+     *
+     * @param id   用户ID
      * @param role 角色
      */
     @Update("update Users set role = #{role} where id = #{id};")
@@ -95,21 +105,27 @@ public interface IUserDao {
 
     /**
      * 获取所有用户信息
+     * @param start 开始位置
+     * @param lines 查询条数
      * @return 所有用户信息
      */
-    @Select("select * from Users;")
-    public List<User> getAllUsers();
+    @Select("select * from Users limit #{start}, #{lines};")
+    public List<User> getAllUsersWithPage(@Param("start") Integer start, @Param("lines") Integer lines);
 
     /**
      * 查找所有角色等级小于给定等级的用户
+     *
      * @param role 角色等级
      * @return 用户信息
+     * @param start 开始位置
+     * @param lines 查询条数
      */
-    @Select("select * from Users where role < #{role}")
-    public List<User> getUsersUnderRole(Integer role);
+    @Select("select * from Users where role < #{role} limit #{start}, #{lines}")
+    public List<User> getUsersUnderRoleWithPage(@Param("role") Integer role, @Param("start") Integer start, @Param("lines") Integer lines);
 
     /**
      * 根据用户ID获取用户信息
+     *
      * @param id 用户ID
      * @return 用户信息
      */
@@ -118,6 +134,7 @@ public interface IUserDao {
 
     /**
      * 根据用户名和密码获取用户信息
+     *
      * @param username 用户名
      * @param password 密码
      * @return 用户信息
@@ -127,9 +144,18 @@ public interface IUserDao {
 
     /**
      * 根据用户名获取用户信息
+     *
      * @param username 用户名
      * @return 用户信息
      */
     @Select("select * from  Users where username = #{username}")
     public List<User> getUsersByUsername(String username);
+
+
+    /**
+     * 查询用户总数
+     * @return 用户总数
+     */
+    @Select("select count(*) from Users;")
+    public Integer getQuantityOfUsers();
 }

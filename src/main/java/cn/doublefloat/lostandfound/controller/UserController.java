@@ -87,10 +87,17 @@ public class UserController {
      * @return 用户列表
      */
     @RequestMapping("/userManagement")
-    public String userManagement(Model model, HttpSession session) {
+    public String userManagement(Integer page, Model model, HttpSession session) {
+        Integer newPage = 1;
+        if (page != null) {
+            newPage = page;
+        }
         User user = (User) session.getAttribute("user");
-        List<User> users = userService.getUsersByUnderRole(user.getRole());
+        List<User> users = userService.getUsersByUnderRoleWithPage(user.getRole(), page);
+        Integer userCount = userService.getQuantityOfUsers();
         model.addAttribute("users", users);
+        model.addAttribute("userCount", userCount);
+        model.addAttribute("thisPage", newPage);
         return "userManagement";
     }
 
