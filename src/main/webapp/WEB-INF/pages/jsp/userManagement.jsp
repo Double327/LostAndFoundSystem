@@ -86,7 +86,7 @@
                 <div class="page-num">
                     <a id="prevPage" href="<%=path%>/user/userManagement?page=${thisPage - 1}"
                        class="page-num-item prev">上一页</a>
-                    <c:forEach var="i" begin="1" end="${userCount / 8 + 1}" step="1">
+                    <c:forEach var="i" begin="1" end="${infoCount / 8 + 1}" step="1">
                         <c:if test="${thisPage == i}">
                             <a href="<%=path%>/user/userManagement?page=${i}" class="page-num-item current">${i}</a>
                         </c:if>

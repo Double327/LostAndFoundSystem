@@ -60,12 +60,24 @@ public class LafInformationService implements ILafInformationService {
     }
 
     @Override
-    public List<LafInformation> getLafInfoByUserId(String userId) {
-        return lafInformationDao.getLafInfoByUserId(userId);
+    public List<LafInformation> getLafInfoByUserIdWithPage(String userId, Integer page) {
+        Integer start = 0;
+        if (page != null) {
+            start = (page - 1) * 8;
+        }
+        System.out.println(userId + page + start);
+        return lafInformationDao.getLafInfoByUserIdWithPage(userId, start, 8);
     }
+
 
     @Override
     public List<LafInformation> getLafInfoByName(String title) {
         return lafInformationDao.getLafInfoByName(title);
     }
+
+    @Override
+    public Integer getQuantityOfLafInfo() {
+        return lafInformationDao.getQuantityOfLafInfo();
+    }
+
 }

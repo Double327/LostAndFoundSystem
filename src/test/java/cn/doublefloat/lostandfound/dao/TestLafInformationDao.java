@@ -68,4 +68,12 @@ public class TestLafInformationDao {
             System.out.println(lafInformation);
         }
     }
+
+    @Test
+    public void testGetLafInfoByUserIdWithPage() {
+        List<LafInformation> lafInformationList = lafInformationDao.getLafInfoByUserIdWithPage("a60cf2094429499bb14e2b305d42e8e7", 0, 8);
+        for (LafInformation lafInformation : lafInformationList) {
+            System.out.println(lafInformation);
+        }
+    }
 }

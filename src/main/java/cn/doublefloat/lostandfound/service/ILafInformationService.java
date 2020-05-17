@@ -75,9 +75,10 @@ public interface ILafInformationService {
      * 根据作者ID查找
      *
      * @param userId 作者ID
+     * @param page 当前页数
      * @return 信息
      */
-    List<LafInformation> getLafInfoByUserId(String userId);
+    List<LafInformation> getLafInfoByUserIdWithPage(String userId, Integer page);
 
 
     /**
@@ -87,5 +88,13 @@ public interface ILafInformationService {
      * @return 信息
      */
     List<LafInformation> getLafInfoByName(String title);
+
+    /**
+     * 获取丢失找回信息条数
+     *
+     * @return 信息条数
+     */
+    @Select("select * from LAFInformation")
+    Integer getQuantityOfLafInfo();
 
 }

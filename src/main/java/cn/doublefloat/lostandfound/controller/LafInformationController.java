@@ -80,11 +80,19 @@ public class LafInformationController {
      * @return 发布管理页
      */
     @RequestMapping("/lafInfoManagement")
-    public String lafInfoManagement(HttpSession session, Model model) {
+    public String lafInfoManagement(Integer page, HttpSession session, Model model) {
+        System.out.println(page);
+        Integer newPage = 1;
+        if (page != null) {
+            newPage = page;
+        }
         User user = (User) session.getAttribute("user");
         System.out.println(user);
-        List<LafInformation> lafInformationList = lafInformationService.getLafInfoByUserId(user.getId());
+        List<LafInformation> lafInformationList = lafInformationService.getLafInfoByUserIdWithPage(user.getId(), page);
+        Integer lafInfoCount = lafInformationList.size();
         model.addAttribute("lafInformationList", lafInformationList);
+        model.addAttribute("lafInfoCount", lafInfoCount);
+        model.addAttribute("thisPage", newPage);
         return "lafInfoManagement";
     }
 

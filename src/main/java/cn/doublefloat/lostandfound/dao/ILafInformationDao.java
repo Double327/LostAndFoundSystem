@@ -91,11 +91,12 @@ public interface ILafInformationDao {
     /**
      * 根据作者ID查找
      * @param userId 作者ID
+     * @param start 开始条数
+     * @param lines 查询条数
      * @return 信息
      */
-    @ResultMap("lafInfoResultMap")
-    @Select("select * from LAFInformation where user_id = #{userId}")
-    List<LafInformation> getLafInfoByUserId(String userId);
+    @Select("select * from LAFInformation where user_id = #{userId} limit #{start}, #{lines}")
+    List<LafInformation> getLafInfoByUserIdWithPage(@Param("userId") String userId, @Param("start") Integer start, @Param("lines") Integer lines);
 
     /**
      * 根据标题获取信息
@@ -105,5 +106,13 @@ public interface ILafInformationDao {
     @ResultMap("lafInfoResultMap")
     @Select("select * from LAFInformation where title like #{title}")
     List<LafInformation> getLafInfoByName(String title);
+
+
+    /**
+     * 获取丢失找回信息条数
+     * @return 信息条数
+     */
+    @Select("select * from LAFInformation")
+    Integer getQuantityOfLafInfo();
 
 }

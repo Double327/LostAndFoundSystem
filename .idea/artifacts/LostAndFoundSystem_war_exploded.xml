@@ -20,8 +20,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.5.RELEASE" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.4" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.4" />
-          <element id="library" level="project" name="Maven: com.mchange:c3p0:0.9.5.5" />
-          <element id="library" level="project" name="Maven: com.mchange:mchange-commons-java:0.2.19" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.19" />
           <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.6.1" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.2.5.RELEASE" />
@@ -40,6 +38,8 @@
           <element id="library" level="project" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" />
           <element id="library" level="project" name="Maven: org.json:json:20160810" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.10" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.7.25" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="LostAndFoundSystem/web/Web" />
