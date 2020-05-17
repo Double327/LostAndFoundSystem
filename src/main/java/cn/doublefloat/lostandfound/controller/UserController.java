@@ -94,7 +94,7 @@ public class UserController {
         }
         User user = (User) session.getAttribute("user");
         List<User> users = userService.getUsersByUnderRoleWithPage(user.getRole(), page);
-        Integer userCount = userService.getQuantityOfUsers();
+        Integer userCount = userService.getQuantityOfUsers(user.getRole());
         model.addAttribute("users", users);
         model.addAttribute("userCount", userCount);
         model.addAttribute("thisPage", newPage);

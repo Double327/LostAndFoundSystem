@@ -106,7 +106,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public Integer getQuantityOfUsers() {
-        return userDao.getQuantityOfUsers();
+    public Integer getQuantityOfUsers(Integer role) {
+        return userDao.getQuantityOfUsers(role);
     }
 }

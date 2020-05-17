@@ -108,5 +108,5 @@ public interface IUserService {
      * 获取用户总数
      * @return 用户总数
      */
-    public Integer getQuantityOfUsers();
+    public Integer getQuantityOfUsers(Integer role);
 }

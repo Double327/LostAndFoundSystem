@@ -155,7 +155,8 @@ public interface IUserDao {
     /**
      * 查询用户总数
      * @return 用户总数
+     * @param role 角色信息
      */
-    @Select("select count(*) from Users;")
-    public Integer getQuantityOfUsers();
+    @Select("select count(*) from Users where role < #{role};")
+    public Integer getQuantityOfUsers(Integer role);
 }
